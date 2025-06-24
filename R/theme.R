@@ -45,7 +45,7 @@ theme_fof <- function(base_size = 14,
 #' @param flipped Whether to flip the y-axis guide lines to show on the x-axis instead (default FALSE)
 #' @param legacy `r lifecycle::badge("deprecated")` Whether to use legacy fonts. This option will be removed sometime in the future.
 #'
-#' @returns a ggplo2 theme
+#' @returns a ggplot2 theme
 #' @export
 #' @importFrom ggplot2 element_line element_rect element_text element_blank rel margin unit '%+replace%'
 #' @examples
@@ -77,7 +77,7 @@ theme_nrc <- function(base_size = 12,
   sysfonts::font_add_google("DM Sans", "DM Sans")
   showtext::showtext_auto()
 
-  ggplot2::update_geom_defaults("smooth", ggplot2::aes(color = nrc_colours["Summer Red"]))
+  ggplot2::update_geom_defaults("smooth", ggplot2::aes(color = nrc_colours["AMWU Orange"]))
 
   thm <- theme_foundation(base_size = base_size, base_family = base_family) +
     ggplot2::theme(line = element_line(linetype = 1, colour = "black", linewidth = 0.25),

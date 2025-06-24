@@ -87,7 +87,7 @@ plot_parameters <- function(plot_data, over, col_var, n_cols, markdown, compare_
   plot_parameters$markdown <- markdown
 
   if (plot_parameters$markdown & plot_parameters$col_var == "state") {
-    title_cols <- fof_pal()(plot_parameters$n_col)
+    title_cols <- nrc_pal()(plot_parameters$n_col)
 
     plot_title_md <- paste0("<span style = color:'", title_cols, "'>", names(title_cols), "</span>", collapse = " and ")
 

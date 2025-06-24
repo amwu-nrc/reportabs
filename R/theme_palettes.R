@@ -37,7 +37,7 @@ nrc_pal <- function(palette = "main", reverse = FALSE, ...) {
                      "See `palette_names()` for a list of available palettes."))
   }
 
-  pal <- fof_palettes[[palette]]
+  pal <- nrc_palettes[[palette]]
 
   if (reverse) pal <- rev(pal)
 
@@ -52,7 +52,7 @@ nrc_pal <- function(palette = "main", reverse = FALSE, ...) {
 #'
 #' @examples palette_names()
 palette_names <- function() {
-  names(fof_palettes)
+  names(nrc_palettes)
 }
 
 #' List available colours

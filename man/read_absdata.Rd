@@ -7,7 +7,7 @@
 read_absdata(name = NULL, export_dir = tempdir())
 }
 \arguments{
-\item{name}{The name, as a string, of the dataset to download.A full list of available data is available at https://github.com/f-fof/aitidata}
+\item{name}{The name, as a string, of the dataset to download.A full list of available data is available at https://github.com/amwu-nrc/amwudata}
 
 \item{export_dir}{The directory in which to save downloaded data. Defaults to a temporary directory.}
 }
@@ -15,5 +15,5 @@ read_absdata(name = NULL, export_dir = tempdir())
 data
 }
 \description{
-Read ABS time series data from the \href{https://github.com/f-fof/aitidata}{aitidata} package.
+Read ABS time series data from the \href{https://github.com/amwu-nrc/amwudata}{amwudata} package.
 }

@@ -45,8 +45,8 @@ sahm <- function(data, state = "Australia") {
         y = "percentage points",
         title = state
       ) +
-      theme_fof() +
-      scale_colour_fof(reverse = T)
+      theme_nrc() +
+      scale_colour_nrc(reverse = T)
   }
 
   else {
@@ -61,8 +61,8 @@ sahm <- function(data, state = "Australia") {
         x = NULL,
         y = "percentage points"
       ) +
-      theme_fof() +
-      scale_colour_fof()
+      theme_nrc() +
+      scale_colour_nrc()
   }
 }
 

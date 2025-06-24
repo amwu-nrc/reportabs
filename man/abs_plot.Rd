@@ -19,7 +19,7 @@ abs_plot(
 }
 \arguments{
 \item{data}{(optional). Specify a data frame or tibble object to use data other than the labour_force data
-included in the \code{aitidata} package. You can use the pipe operator.}
+included in the \code{amwudata} package. You can use the pipe operator.}
 
 \item{filter_with}{named list specifying what should be plot.}
 
@@ -40,7 +40,7 @@ Note that some aspects of the plot are unavailable if plotly = TRUE, including s
 
 \item{void}{(optional) logical. Defaults to FALSE. Specify TRUE to remove all plot elements except for the line.}
 
-\item{...}{other arguments passed to theme_fof()}
+\item{...}{other arguments passed to theme_nrc()}
 }
 \value{
 A ggplot2 time-series plot or a plotly time-series plot if plotly = TRUE
