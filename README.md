@@ -20,11 +20,11 @@ visual and textual reporting of data.
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("f-fof/reportabs")
+remotes::install_github("amwu-nrc/reportabs")
 ```
 
 This package works with ABS Time Series data. A collection of pre-tidied
-ABS data is available through the `aitidata` package. This package is
+ABS data is available through the `amwudata` package. This package is
 large and constantly updated, so you shouldn’t need to install it.
 Instead, you can access the data through this package.
 
