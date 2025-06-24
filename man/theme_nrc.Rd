@@ -27,7 +27,7 @@ theme_nrc(
 \item{legacy}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Whether to use legacy fonts. This option will be removed sometime in the future.}
 }
 \value{
-a ggplo2 theme
+a ggplot2 theme
 }
 \description{
 Theme for plots in publications, reports, Shiny apps, etc. Anywhere ggplot2 is used, you can use this theme!
