@@ -2,11 +2,11 @@
 % Please edit documentation in R/theme.R
 \name{theme_fof}
 \alias{theme_fof}
-\title{ggplot2 theme for Factory of the Future}
+\title{Factory of the Future Theme}
 \usage{
 theme_fof(
-  base_size = 12,
-  colour = "Sand",
+  base_size = 14,
+  colour = "Soft Black",
   legend = "none",
   markdown = FALSE,
   flipped = FALSE,
@@ -16,25 +16,23 @@ theme_fof(
 \arguments{
 \item{base_size}{The base size of text elements of the plot. (default 12)}
 
-\item{colour}{The background colour of the plot. Background colours are applied at 80\% transparency. (default 'Soft Black')}
+\item{colour}{The background colour of the plot.}
 
-\item{legend}{The position of the legend. (default "none")}
+\item{legend}{The position of the legend (default no legend)}
 
-\item{markdown}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}} Whether to use markdown formatting for plot titles (default FALSE)}
+\item{markdown}{Whether to use markdown formatting for plot titles (default FALSE)}
 
-\item{flipped}{Whether to flip the y-axis guide lines to show on the x-axis instead (default FALSE)}
+\item{flipped}{TRUE to flip the y-axis guide lines to show on the x-axis instead.}
 
-\item{legacy}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Whether to use legacy (AITI) fonts. This option will be removed sometime in the future.}
+\item{legacy}{Whether to use legacy fonts}
 }
 \value{
-a ggplo2 theme
+ggplot2 theme
 }
 \description{
-Theme for plots in publications, reports, Shiny apps, etc. Anywhere ggplot2 is used, you can use this theme!
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+\code{theme_fof()} has been renamed \code{theme_nrc()}
 }
-\examples{
-library(ggplot2)
-df <- data.frame(x = c("One", "Two", "Three"), y = c(4, 2, 9))
-p <- ggplot(df, aes(x = x, y = y, fill = x)) + geom_col()
-p + theme_fof()
+\details{
+Theme for plots in Factory of the Future publications, reports, Shiny Apps.
 }

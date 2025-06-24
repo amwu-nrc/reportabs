@@ -1,6 +1,6 @@
-#' AITI Theme
+#' Factory of the Future Theme
 #'
-#' Theme for plots in AITI publications, reports, Shiny Apps.
+#' Theme for plots in Factory of the Future publications, reports, Shiny Apps.
 #'
 #' @param base_size The base size of text elements of the plot. (default 12)
 #' @param colour The background colour of the plot.
@@ -14,18 +14,18 @@
 
 #' @description
 #' `r lifecycle::badge("deprecated")`
-#' `theme_aiti()` has been renamed `theme_fof()`
+#' `theme_fof()` has been renamed `theme_nrc()`
 
-theme_aiti <- function(base_size = 12,
+theme_fof <- function(base_size = 14,
                        colour = "Soft Black",
                        legend = "none",
                        markdown = FALSE,
                        flipped = FALSE,
                        legacy = FALSE) {
 
-  lifecycle::deprecate_warn("0.0.2", "theme_aiti()", "theme_fof()")
+  lifecycle::deprecate_warn("0.0.3", "theme_fof()", "theme_nrc()")
 
-  theme_fof(base_size,
+  theme_nrc(base_size,
             colour,
             legend,
             markdown,
@@ -34,7 +34,7 @@ theme_aiti <- function(base_size = 12,
 
 }
 
-#' ggplot2 theme for Factory of the Future
+#' ggplot2 theme for Australian Manufacturing Workers Union
 #'
 #' Theme for plots in publications, reports, Shiny apps, etc. Anywhere ggplot2 is used, you can use this theme!
 #'
@@ -43,7 +43,7 @@ theme_aiti <- function(base_size = 12,
 #' @param legend The position of the legend. (default "none")
 #' @param markdown `r lifecycle::badge("experimental")` Whether to use markdown formatting for plot titles (default FALSE)
 #' @param flipped Whether to flip the y-axis guide lines to show on the x-axis instead (default FALSE)
-#' @param legacy `r lifecycle::badge("deprecated")` Whether to use legacy (AITI) fonts. This option will be removed sometime in the future.
+#' @param legacy `r lifecycle::badge("deprecated")` Whether to use legacy fonts. This option will be removed sometime in the future.
 #'
 #' @returns a ggplo2 theme
 #' @export
@@ -52,8 +52,8 @@ theme_aiti <- function(base_size = 12,
 #' library(ggplot2)
 #' df <- data.frame(x = c("One", "Two", "Three"), y = c(4, 2, 9))
 #' p <- ggplot(df, aes(x = x, y = y, fill = x)) + geom_col()
-#' p + theme_fof()
-theme_fof <- function(base_size = 12,
+#' p + theme_nrc()
+theme_nrc <- function(base_size = 12,
                       colour = "Sand",
                       legend = "none",
                       markdown = FALSE,
@@ -62,7 +62,7 @@ theme_fof <- function(base_size = 12,
 
   stopifnot(legend %in% c("none", "top", "bottom", "left", "right"))
 
-  col <- fof_colours[colour]
+  col <- nrc_colours[colour]
 
   bg_colour <-grDevices::col2rgb(col) + (255 - grDevices::col2rgb(col))*0.8
 
@@ -77,7 +77,7 @@ theme_fof <- function(base_size = 12,
   sysfonts::font_add_google("DM Sans", "DM Sans")
   showtext::showtext_auto()
 
-  ggplot2::update_geom_defaults("smooth", ggplot2::aes(color = fof_colours["Summer Red"]))
+  ggplot2::update_geom_defaults("smooth", ggplot2::aes(color = nrc_colours["Summer Red"]))
 
   thm <- theme_foundation(base_size = base_size, base_family = base_family) +
     ggplot2::theme(line = element_line(linetype = 1, colour = "black", linewidth = 0.25),

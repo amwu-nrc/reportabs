@@ -1,22 +1,23 @@
-#' Generate AITI colours from a palette
+#' Generate Factory of the Future colours from a pre-defined palette
 #'
-#' @param palette Name of colour palette
-#' @param reverse TRUE to reverse the order of the colours
+#' @param palette Name of colour palette. See `palette_names()` for a list of available palettes.
+#' @param reverse Whether the order of the colours should be reversed (default FALSE)
 #' @param ... Other arguments passed to `colorRampPalette()`
 #'
+#' @returns A colour palette
 #' @export
 #' @description
 #' `r lifecycle::badge("deprecated")`
-#' `aiti_pal()` has been renamed `fof_pal()`
-#'
-aiti_pal <- function(palette = "main", reverse = FALSE, ...) {
+#' `fof_pal()` has been renamed `nrc_pal()`
 
-  lifecycle::deprecate_warn("0.0.2", "aiti_pal()", "fof_pal()")
+fof_pal <- function(palette = "main", reverse = FALSE, ...) {
 
-  fof_pal(palette, reverse, ...)
+  lifecycle::deprecate_warn("0.0.3", "fof_pal()", "nrc_pal()")
+
+  nrc_pal(palette, reverse, ...)
 }
 
-#' Generate Factory of the Future colours from a pre-defined palette
+#' Generate Australian Manufacturing Workers Union colours from a pre-defined palette
 #'
 #' @param palette Name of colour palette. See `palette_names()` for a list of available palettes.
 #' @param reverse Whether the order of the colours should be reversed (default FALSE)
@@ -26,10 +27,10 @@ aiti_pal <- function(palette = "main", reverse = FALSE, ...) {
 #' @export
 #'
 #' @examples
-#' # To generate a sequence of n colours from the 'main' palette:
+#' To generate a sequence of n colours from the 'main' palette:
 #' n <- 2
-#' fof_pal("main")(n)
-fof_pal <- function(palette = "main", reverse = FALSE, ...) {
+#' nrc_pal("main")(n)
+nrc_pal <- function(palette = "main", reverse = FALSE, ...) {
 
   if (!palette %in% palette_names()) {
     cli::cli_abort(c("There is no palette called {.var palette}.",
@@ -41,6 +42,7 @@ fof_pal <- function(palette = "main", reverse = FALSE, ...) {
   if (reverse) pal <- rev(pal)
 
   grDevices::colorRampPalette(pal, ...)
+
 }
 
 #' List available palettes
@@ -60,15 +62,14 @@ palette_names <- function() {
 #' @return A named character vector of the defined colours in the package.
 #' @export
 #'
-#' @examples aiti_cols()
 #' @description
 #' `r lifecycle::badge("deprecated")`
-#' `aiti_cols()` has been renamed `fof_cols()`
+#' `fof_cols()` has been renamed `nrc_cols()`
 #'
-aiti_cols <- function(colour = NULL) {
+fof_cols <- function(colour = NULL) {
 
-  lifecycle::deprecate_warn("0.0.2", "aiti_cols()", "fof_cols()")
-  fof_cols(colour)
+  lifecycle::deprecate_warn("0.0.3", "fof_cols()", "nrc_cols()")
+  nrc_cols(colour)
 }
 
 #' List available colours
@@ -78,14 +79,14 @@ aiti_cols <- function(colour = NULL) {
 #' @returns A named character vector of the defined colours in the package.
 #' @export
 #'
-#' @examples fof_cols()
-fof_cols <- function(colour = NULL) {
+#' @examples nrc_cols()
+nrc_cols <- function(colour = NULL) {
   cols <- c(colour)
 
   if (is.null(cols))
-    return (fof_colours)
+    return (nrc_colours)
 
-  fof_colours[cols]
+  nrc_colours[cols]
 }
 
 
@@ -101,7 +102,7 @@ fof_cols <- function(colour = NULL) {
 #' @examples visualise_palette("just orange", n = 5)
 visualise_palette <- function(palette, n) {
 
-  cols <- fof_pal(palette)(n)
+  cols <- nrc_pal(palette)(n)
 
   scales::show_col(cols)
 }

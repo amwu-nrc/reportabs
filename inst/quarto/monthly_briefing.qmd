@@ -1,6 +1,4 @@
 ---
-brand: 
-  _brand.yml
 execute: 
   echo: false
 format: 
@@ -64,14 +62,14 @@ The ABS Labour Force Survey data for **`r params$state`** released in `r release
 
 -   In `r release(labour_force_briefing, 'month')`, `r str_to_lower("Seasonally Adjusted")` employment in `r params$state` `r change(labour_force_briefing, filter_with = filter_list,  ym = 'month')` people.
 -   Compared with `r release(labour_force_briefing, 'month')` last year, total employment in `r params$state` has `r growth(labour_force_briefing, filter_with = filter_list,  ym = 'year')`.
--   Nationally, employment in `r params$state; filter_list$state = "Australia"; release(labour_force_briefing, 'month'); change(labour_force_briefing, filter_with = filter_list,  ym = 'month')` people.
+-   Nationally, employment `r filter_list$state = "Australia"; release(labour_force_briefing, 'month'); change(labour_force_briefing, filter_with = filter_list,  ym = 'month')` people.
 
 ```{r}
 #| label: employment
 #| out-width: "70%"
 #| fig-align: center
 filter_list$state = params$state
-abs_plot(labour_force_briefing, over = filter_list)
+abs_plot(labour_force_briefing, filter_with = filter_list)
 ```
 
 ## Full and Part Time Employment
@@ -88,7 +86,7 @@ abs_plot(labour_force_briefing, over = filter_list)
 filter_list$indicator = c("Employed part-time", "Employed full-time")
 
 abs_plot(labour_force_briefing, 
-         over = filter_list, 
+         filter_with = filter_list, 
          compare_aus = FALSE) 
 
 ```
@@ -125,7 +123,7 @@ abs_plot(labour_force_briefing, filter_list)
 #| out-width: "70%"
 #| fig-align: center
 filter_list$sex = c("Males", "Females")
-abs_plot(labour_force_briefing, over = filter_list, compare_aus = F)
+abs_plot(labour_force_briefing, filter_with = filter_list, compare_aus = F)
 
 ```
 

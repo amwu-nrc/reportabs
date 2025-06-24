@@ -17,11 +17,6 @@ scale_fill_fof(palette = "main", discrete = TRUE, reverse = FALSE)
 ggplot2 fill scale
 }
 \description{
-Fill scale for Factory of the Future colours
-}
-\examples{
-library(ggplot2)
-df <- data.frame(x = c("One", "Two", "Three"), y = c(4, 2, 9))
-p <- ggplot(df, aes(x = x, y = y, fill = x)) + geom_col()
-p + scale_fill_fof()
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+\code{scale_fill_fof()} has been renamed \code{scale_fill_nrc()}
 }

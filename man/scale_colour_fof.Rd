@@ -2,7 +2,7 @@
 % Please edit documentation in R/colour_scale.R
 \name{scale_colour_fof}
 \alias{scale_colour_fof}
-\title{Colour scale for Factory of the Future colours}
+\title{Colour Scale for Factory of the Future}
 \usage{
 scale_colour_fof(palette = "main", discrete = TRUE, reverse = FALSE)
 }
@@ -17,11 +17,6 @@ scale_colour_fof(palette = "main", discrete = TRUE, reverse = FALSE)
 ggplot2 colour scale
 }
 \description{
-Colour scale for Factory of the Future colours
-}
-\examples{
-library(ggplot2)
-p <- ggplot(mtcars, aes(x = mpg, y = disp, col = factor(cyl))) + geom_point()
-p + scale_colour_fof()
-
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+\code{scale_colour_fof()} has been renamed \code{scale_colour_nrc()}
 }
