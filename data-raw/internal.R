@@ -12,7 +12,7 @@ nrc_colours <- c(
 
 
 
-fof_palettes <- list(
+nrc_palettes <- list(
   `main` = nrc_colours[c("AMWU Orange", "Soft Black", "Sand", "AMWU Blue")],
   `amwu` = nrc_colours[c("AMWU Orange",  "AMWU Blue", "Website Grey")],
   `website` = nrc_colours[c("Website Yellow", "Website Grey", "Just White")],
@@ -20,6 +20,6 @@ fof_palettes <- list(
   `just blue` = nrc_colours[c("AMWU Blue", "Sand")]
 )
 
-usethis::use_data(fof_palettes, fof_colours, internal = TRUE, overwrite = TRUE)
+usethis::use_data(nrc_palettes, nrc_colours, internal = TRUE, overwrite = TRUE)
 
 
