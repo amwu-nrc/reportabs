@@ -20,7 +20,7 @@ A colour palette
 Generate Australian Manufacturing Workers Union colours from a pre-defined palette
 }
 \examples{
-To generate a sequence of n colours from the 'main' palette:
+# To generate a sequence of n colours from the 'main' palette:
 n <- 2
 nrc_pal("main")(n)
 }

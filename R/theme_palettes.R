@@ -27,7 +27,7 @@ fof_pal <- function(palette = "main", reverse = FALSE, ...) {
 #' @export
 #'
 #' @examples
-#' To generate a sequence of n colours from the 'main' palette:
+#' # To generate a sequence of n colours from the 'main' palette:
 #' n <- 2
 #' nrc_pal("main")(n)
 nrc_pal <- function(palette = "main", reverse = FALSE, ...) {

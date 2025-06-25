@@ -26,7 +26,7 @@ scale_colour_fof <- function(palette = "main", discrete = TRUE, reverse = FALSE)
 #' @param palette Name of the colour palette (default "main")
 #' @param discrete Whether the colours should be discrete or continuous (default TRUE)
 #' @param reverse Whether the order of the colours should be reversed (default FALSE)
-#'
+#' @export
 #' @examples
 #' library(ggplot2)
 #' p <- ggplot(mtcars, aes(x = mpg, y = disp, col = factor(cyl))) + geom_point()

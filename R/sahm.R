@@ -39,7 +39,7 @@ sahm <- function(data, state = "Australia") {
       dplyr::filter(.data$state == state) |>
       ggplot2::ggplot(ggplot2::aes(x = date, y = sahm, col = state)) +
       ggplot2::geom_line() +
-      ggplot2::geom_hline(ggplot2::aes(yintercept = 0.5), colour = fof_colours["Summer Red"]) +
+      ggplot2::geom_hline(ggplot2::aes(yintercept = 0.5), colour = nrc_colours["AMWU Orange"]) +
       ggplot2::labs(
         x = NULL,
         y = "percentage points",
@@ -55,7 +55,7 @@ sahm <- function(data, state = "Australia") {
       dplyr::filter(.data$state %in% state) |>
       ggplot2::ggplot(ggplot2::aes(x = date, y = sahm, col = state)) +
       ggplot2::geom_line() +
-      ggplot2::geom_hline(ggplot2::aes(yintercept = 0.5), colour = fof_colours["Summer Red"]) +
+      ggplot2::geom_hline(ggplot2::aes(yintercept = 0.5), colour = nrc_colours["AMWU Orange"]) +
       ggplot2::facet_wrap(state~.) +
       ggplot2::labs(
         x = NULL,

@@ -11,12 +11,12 @@ Makes reporting ABS TimeSeries data simpler. It provides convenience functions f
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://f-fof.github.io/reportabs/}
+  \item \url{https://amwu-nrc.github.io/reportabs/}
 }
 
 }
 \author{
-\strong{Maintainer}: Hamish Gamble \email{hamish.gamble@flinders.edu.au}
+\strong{Maintainer}: Hamish Gamble \email{hamish.gamble@amwu.org.au}
 
 }
 \keyword{internal}
