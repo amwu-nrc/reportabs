@@ -4,7 +4,7 @@ plot_parameters <- function(plot_data, over, col_var, n_cols, markdown, compare_
 
   plot_parameters$col_var <- col_var
   plot_parameters$n_cols <- n_cols
-
+  plot_parameters$data_name <- unique(plot_data$data)
 
   if (any(Map(length, over) > 1)) {
     plot_parameters$legend <- "top"
@@ -44,49 +44,11 @@ plot_parameters <- function(plot_data, over, col_var, n_cols, markdown, compare_
     plot_parameters$hover <- as_comma
   }
 
-  table_no <- dplyr::case_when(
-    over$indicator == "Monthly hours worked in all jobs" ~ "19",
-    over$indicator == "Underutilised total" ~ "23",
-    over$indicator == "Underemployed total" ~ "23",
-    over$indicator == "Underutilisation rate" ~ "23",
-    over$indicator == "Underemployment rate" ~ "23",
-    grepl("jobseeker|jobkeeper", over$indicator, ignore.case = TRUE) ~ "",
-    grepl("payroll", over$indicator, ignore.case = TRUE) ~ "4",
-    TRUE ~ "12"
-  )
-
-  if (length(table_no) != 1) {
-    table_no <- unique(table_no)
-  }
-
-  series_types <- unique(over$series_type)
-
-
-  caption_table <- dplyr::case_when(
-    grepl("jobkeeper", over$indicator, ignore.case = TRUE) ~ paste0("Source: Treasury, ",
-                                                                    lubridate::month(max(plot_data$date), abbr = FALSE, label =TRUE), " ",
-                                                                    lubridate::year(max(plot_data$date))),
-    grepl("jobseeker", over$indicator, ignore.case = TRUE) ~ paste0("Source: Department of Social Services, ",
-                                                                    lubridate::month(max(plot_data$date), abbr = FALSE, label = TRUE), " ",
-                                                                    lubridate::year(max(plot_data$date))),
-    grepl("payroll", over$indicator, ignore.case = TRUE) ~ paste0("Source: ABS Weekly Payroll Jobs and Wages in Australia, ",
-                                                                  reportabs::release(plot_data, "month"), " ",
-                                                                  reportabs::release(plot_data, "year")),
-    TRUE ~ paste0("Source: ABS Labour Force, Australia, ",
-                  reportabs::release(plot_data, "month"), " ",
-                  reportabs::release(plot_data, "year"),
-                  " (Table ", paste0(table_no, collapse = ","), ", ", series_types, ")")
-  )
-
-  if (length(caption_table) != 1) {
-    caption_table <- unique(caption_table)
-  }
-
 
   plot_parameters$num_months <- as.numeric(lubridate::month(max(plot_data$date)))
   plot_parameters$month <- lubridate::month(min(plot_data$date), abbr = FALSE, label = TRUE)
   plot_parameters$year <- lubridate::year(min(plot_data$date))
-  plot_parameters$caption <- caption_table
+  plot_parameters$caption <- create_caption(plot_parameters$data_name, plot_data, over)
   plot_parameters$date_range <- c(min(plot_data$date), max(plot_data$date))
   plot_parameters$markdown <- markdown
 

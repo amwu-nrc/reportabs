@@ -42,11 +42,15 @@ abs_plot <- function(data = NULL,
     filter_with <- over
   }
 
+
+
   if (is.null(data)) {
     plot_data <- read_absdata("labour_force")
   } else if (is.data.frame(data)) {
     plot_data <- data
   }
+
+  # Check for a 'data' column in the supplied data.
 
 
   over <- make_safe(plot_data, filter_with)
