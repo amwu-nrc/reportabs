@@ -11,7 +11,7 @@ plot_parameters <- function(plot_data, over, col_var, n_cols, markdown, compare_
   }
 
 
-  to_match <- c("rate", "ratio", "proportion")
+  to_match <- c("rate", "ratio", "proportion", "index")
 
   if (any(grepl("payroll", over$indicator, ignore.case = TRUE))) {
     plot_parameters$index <- FALSE
@@ -25,6 +25,10 @@ plot_parameters <- function(plot_data, over, col_var, n_cols, markdown, compare_
     plot_parameters$index <- FALSE
     plot_parameters$y_label <- scales::percent_format(scale = 1)
     plot_parameters$hover <- as_percent
+  } else if (any(grepl("index", over$indicator, ignore.case = TRUE))) {
+    plot_parameters$index <- FALSE
+    plot_parameters$y_label <- scales::comma_format(scale = 1)
+    plot_parameters$hover <- as_comma
   } else if (any(grepl(paste(to_match, collapse = "|"), over$indicator))) {
     plot_parameters$index <- FALSE
     plot_parameters$y_label <- scales::percent_format(scale = 1)
