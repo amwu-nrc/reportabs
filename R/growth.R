@@ -15,11 +15,13 @@
 #'
 growth <- function(
   data = NULL,
-  filter_with = NULL,
+  filter_with,
   ym = 'year',
   at_year = NULL,
   at_month = NULL
 ) {
+
+  filter_with <- make_safe(data, filter_with, "labour_force")
 
   filtered_data <- data |>
     filter_list(filter_with)

@@ -79,6 +79,8 @@ value_at <- function(data, filter_with,  at_year = NULL, at_month = NULL) {
 
 last_value <- function(data, filter_with, ym = 'year', print = TRUE) {
 
+  filter_with <- make_safe_labour_force(data, filter_with)
+
   filtered_data <- data  |>
     filter_list(filter_with)
 
@@ -197,6 +199,8 @@ change <- function(data,
                    at_year = NULL,
                    at_month = NULL
 ) {
+
+  filter_with <- make_safe(data, filter_with, sw = "labour_force")
 
   filtered_data <- data |>
     filter_list(filter_with)
