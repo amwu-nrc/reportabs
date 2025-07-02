@@ -1,74 +1,35 @@
-plot_parameters <- function(plot_data, over, col_var, n_cols, markdown, compare_aus, facet) {
+plot_parameters <- function(plot_data, over, sw, col_var,  markdown, compare_aus, facet, ...) {
 
   plot_parameters <- list()
 
   plot_parameters$col_var <- col_var
-  plot_parameters$n_cols <- n_cols
-  plot_parameters$data_name <- unique(plot_data$data)
+  plot_parameters$n_col <- length(unlist(over[names(over)==col_var]))
 
   if (any(Map(length, over) > 1)) {
     plot_parameters$legend <- "top"
   }
 
+  # Y axis stuff
+  # Need to scale data still (ie 140,000 = 140k, or something)
+  plot_parameters <- append(plot_parameters,  create_axes(over = over, sw = sw))
 
-  to_match <- c("rate", "ratio", "proportion", "index")
+  #scale
 
-  if (any(grepl("payroll", over$indicator, ignore.case = TRUE))) {
-    plot_parameters$index <- FALSE
-    plot_parameters$y_label <- scales::comma_format(scale = 1)
-    plot_parameters$hover <- as_comma
-  } else if (length(over$state) >= 2 & !any(grepl(paste(to_match, collapse = "|"), over$indicator))) {
-    plot_parameters$index <- TRUE
-    plot_parameters$y_label <- scales::comma_format(scale = 1)
-    plot_parameters$hover <- as_comma
-  } else if ((length(over$state) == 1) & any(grepl(paste(to_match, collapse = "|"), over$indicator))) {
-    plot_parameters$index <- FALSE
-    plot_parameters$y_label <- scales::percent_format(scale = 1)
-    plot_parameters$hover <- as_percent
-  } else if (any(grepl("index", over$indicator, ignore.case = TRUE))) {
-    plot_parameters$index <- FALSE
-    plot_parameters$y_label <- scales::comma_format(scale = 1)
-    plot_parameters$hover <- as_comma
-  } else if (any(grepl(paste(to_match, collapse = "|"), over$indicator))) {
-    plot_parameters$index <- FALSE
-    plot_parameters$y_label <- scales::percent_format(scale = 1)
-    plot_parameters$hover <- as_comma
-  } else {
-    plot_parameters$index <- FALSE
-    plot_parameters$scale <- ifelse(min(plot_data$value > 1e6), 1e-6, 1e-3)
-    plot_parameters$suffix <- dplyr::case_when(
-      min(plot_data$value) > 1e6 ~ "m",
-      min(plot_data$value) > 1e3 ~ "k",
-      TRUE ~ "")
-    plot_parameters$y_label <- scales::comma_format(scale = plot_parameters$scale, suffix = plot_parameters$suffix)
-    plot_parameters$hover <- as_comma
-  }
+  #Titles and subtitles
+  plot_parameters <- append(plot_parameters,
+                            create_titles(plot_data = plot_data, index = plot_parameters$index, over = over, sw = sw))
 
+  #Captions
+  plot_parameters$caption <- create_caption(sw, plot_data, over)
+
+  #Miscellany
 
   plot_parameters$num_months <- as.numeric(lubridate::month(max(plot_data$date)))
-  plot_parameters$month <- lubridate::month(min(plot_data$date), abbr = FALSE, label = TRUE)
-  plot_parameters$year <- lubridate::year(min(plot_data$date))
-  plot_parameters$caption <- create_caption(plot_parameters$data_name, plot_data, over)
+
   plot_parameters$date_range <- c(min(plot_data$date), max(plot_data$date))
   plot_parameters$markdown <- markdown
 
-  if (plot_parameters$markdown & plot_parameters$col_var == "state") {
-    title_cols <- nrc_pal()(plot_parameters$n_col)
 
-    plot_title_md <- paste0("<span style = color:'", title_cols, "'>", names(title_cols), "</span>", collapse = " and ")
-
-  } else {
-    plot_title_md <- paste0(over$state, collapse = " & ")
-  }
-  if(plot_parameters$index) {
-    plot_parameters$title <- paste0(collapse = ", ", stringr::str_to_title(over$indicator)) #paste0(stringr::str_to_title(indicator), ": ", plot_title_md)
-    plot_parameters$subtitle <- paste("Index (Base:", plot_parameters$month, plot_parameters$year, "= 100)")
-    plot_parameters$y_var <- "index"
-  } else {
-    plot_parameters$title <- paste0(collapse = ", ",stringr::str_to_title(over$indicator)) #paste0(stringr::str_to_title(indicator), ": ", plot_title_md)
-    plot_parameters$subtitle <- if(length(over$state) == 1) {over$state} else NULL
-    plot_parameters$y_var <- "value"
-  }
 
   if (!is.null(facet)) {
     plot_parameters$facet <- facet
@@ -165,4 +126,41 @@ create_plot <- function(plot_data, plot_parameters, void, plotly, ...) {
 
   return(p)
 
+}
+
+check_valid_graph <- function(over, facet) {
+  e <- Map(length, over)
+  if (sum(e > 1) > 1 && is.null(facet)) {
+    cli::cli_abort("Only one variable in `filter_with` can have length greater than 1.
+                     You can try specifying `facet`")
+  } else {
+    return(e)
+  }
+}
+
+get_col_var <- function(e) {
+  # The simplest case is when 1 variable in filter_with has length > 1
+  if (length(e[e > 1]) == 1) {
+    col_var <- names(e[e > 1])
+  } else {
+    col_var <- dplyr::case_when(
+      length(e[e > 1]) == 0 && !"industry" %in% names(e) ~ "indicator",
+      length(e[e > 1]) == 0 && "industry" %in% names(e) ~ "industry"
+    )
+  }
+
+  col_var
+}
+
+create_plot_data <- function(data, over, index_to, years) {
+  plot_data <- data |>
+    filter_list(over) |>
+    dplyr::filter(lubridate::year(date) >= years) |>
+    dplyr::group_by(dplyr::across(-dplyr::any_of(c("date", "value")))) |>
+    dplyr::mutate(index = 100 * .data$value / .data$value[date == index_to],
+                  value = ifelse(.data$unit == "000", .data$value*1000, .data$value),
+                  index_to = {{index_to}}) |>
+    dplyr::ungroup()
+
+  plot_data
 }

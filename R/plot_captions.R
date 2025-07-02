@@ -1,9 +1,20 @@
 create_caption <- function(data_name, plot_data, over) {
   switch(data_name,
          "australian_industry" = create_caption_australian_industry(plot_data),
-         "labour_force" = create_caption_labour_force(plot_data, over)
+         "labour_force" = create_caption_labour_force(plot_data, over),
+         "wpi" = create_caption_wpi(plot_data, over)
 
   )
+}
+
+create_caption_wpi <- function(plot_data, over) {
+  table_no <-"2b:7b"
+  caption_source <- "Source: ABS Wage Price Index, Australia"
+  date <- paste0(reportabs::release(plot_data, "month"),
+                 " ",
+                 reportabs::release(plot_data, "year"))
+  caption <- paste0(caption_source, " ", date, " (", table_no, ")")
+
 }
 
 create_caption_australian_industry <- function(plot_data) {

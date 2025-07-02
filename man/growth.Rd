@@ -4,13 +4,7 @@
 \alias{growth}
 \title{Growth of an ABS indicator.}
 \usage{
-growth(
-  data = NULL,
-  filter_with = NULL,
-  ym = "year",
-  at_year = NULL,
-  at_month = NULL
-)
+growth(data = NULL, filter_with, ym = "year", at_year = NULL, at_month = NULL)
 }
 \arguments{
 \item{data}{A dataframe of tidyed ABS data}
