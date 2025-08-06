@@ -30,7 +30,7 @@ library(scales)
 library(showtext)
 
 labour_force_briefing <- read_absdata("labour_force_briefing")
-filter_list <- list(indicator = "Employed total", sex = "Persons", age = "Total (age)", state = params$state, series_type = "Seasonally Adjusted")
+filter_list <- list(indicator = "Employed total", sex = "Persons", state = params$state, series_type = "Seasonally Adjusted")
 
 ```
 
@@ -47,7 +47,7 @@ The ABS Labour Force Survey data for **`r params$state`** released in `r release
 
 **Nationally** in `r release(labour_force_briefing, 'month')`:
 
--   Total *employment* `r filter_list = list(indicator = "Employed total", sex = "Persons", age = "Total (age)", state = "Australia", series_type = "Seasonally Adjusted"); change(labour_force_briefing, filter_with = filter_list, ym = 'month')` people.
+-   Total *employment* `r filter_list = list(indicator = "Employed total", sex = "Persons", state = "Australia", series_type = "Seasonally Adjusted"); change(labour_force_briefing, filter_with = filter_list, ym = 'month')` people.
     -   Over the past year, employment in Australia has `r growth(labour_force_briefing, filter_with = filter_list, ym = 'year')`.
 -   Total *unemployment* `r filter_list$indicator = "Unemployed total"; change(labour_force_briefing, filter_with = filter_list, ym = 'month')` people and the *unemployment rate* `r filter_list$indicator = "Unemployment rate"` `r change(labour_force_briefing,  filter_with = filter_list, ym = 'month')`
     -   Over the past year, unemployment in Australia has `r filter_list$indicator = "Unemployed total"; growth(labour_force_briefing, filter_with = filter_list,  ym = 'year')` and the *unemployment rate* has `r filter_list$indicator = "Unemployment rate"; growth(labour_force_briefing, filter_with = filter_list, ym = 'year')`.
@@ -58,7 +58,7 @@ The ABS Labour Force Survey data for **`r params$state`** released in `r release
 
 # Employment
 
-`r {filter_list = list(indicator = "Employed total", state = params$state, sex = "Persons", age = "Total (age)", series_type = "Seasonally Adjusted")}`
+`r {filter_list = list(indicator = "Employed total", state = params$state, sex = "Persons", series_type = "Seasonally Adjusted")}`
 
 -   In `r release(labour_force_briefing, 'month')`, `r str_to_lower("Seasonally Adjusted")` employment in `r params$state` `r change(labour_force_briefing, filter_with = filter_list,  ym = 'month')` people.
 -   Compared with `r release(labour_force_briefing, 'month')` last year, total employment in `r params$state` has `r growth(labour_force_briefing, filter_with = filter_list,  ym = 'year')`.
@@ -69,7 +69,7 @@ The ABS Labour Force Survey data for **`r params$state`** released in `r release
 #| out-width: "70%"
 #| fig-align: center
 filter_list$state = params$state
-abs_plot(labour_force_briefing, filter_with = filter_list)
+abs_plot(labour_force_briefing, filter_with = filter_list, type = "labour_force")
 ```
 
 ## Full and Part Time Employment
@@ -87,7 +87,8 @@ filter_list$indicator = c("Employed part-time", "Employed full-time")
 
 abs_plot(labour_force_briefing, 
          filter_with = filter_list, 
-         compare_aus = FALSE) 
+         compare_aus = FALSE,
+         type = "labour_force") 
 
 ```
 
@@ -106,7 +107,7 @@ abs_plot(labour_force_briefing,
 #| out-width: "70%"
 #| fig-align: center
 filter_list$state = params$state
-abs_plot(labour_force_briefing, filter_list)
+abs_plot(labour_force_briefing, filter_list, type = "labour_force")
 ```
 
 ## Male and Female Unemployment Rates
@@ -123,7 +124,7 @@ abs_plot(labour_force_briefing, filter_list)
 #| out-width: "70%"
 #| fig-align: center
 filter_list$sex = c("Males", "Females")
-abs_plot(labour_force_briefing, filter_with = filter_list, compare_aus = F)
+abs_plot(labour_force_briefing, filter_with = filter_list, compare_aus = F, type = "labour_force")
 
 ```
 
@@ -143,7 +144,7 @@ abs_plot(labour_force_briefing, filter_with = filter_list, compare_aus = F)
 #| fig-align: center
 filter_list$state = params$state
 filter_list$indicator = "Underemployment rate (proportion of labour force)"
-abs_plot(labour_force_briefing, filter_list)
+abs_plot(labour_force_briefing, filter_list, type = "labour_force")
 ```
 
 ```{r}
@@ -152,7 +153,7 @@ abs_plot(labour_force_briefing, filter_list)
 #| fig-align: center
 filter_list$state = params$state
 filter_list$indicator = "Underemployed total"
-abs_plot(labour_force_briefing, filter_list)
+abs_plot(labour_force_briefing, filter_list, type = "labour_force")
 
 ```
 
@@ -171,5 +172,5 @@ abs_plot(labour_force_briefing, filter_list)
 #| out-width: "70%"
 #| fig-align: center
 filter_list$state = params$state
-abs_plot(labour_force_briefing, filter_list)
+abs_plot(labour_force_briefing, filter_list, type = "labour_force")
 ```
