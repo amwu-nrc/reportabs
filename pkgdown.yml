@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   plotting: plotting.html
   reporting: reporting.html
-last_built: 2025-06-26T03:08Z
+last_built: 2025-08-06T03:33Z
 urls:
   reference: https://amwu-nrc.github.io/reportabs/reference
   article: https://amwu-nrc.github.io/reportabs/articles
