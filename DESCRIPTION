@@ -37,7 +37,6 @@ VignetteBuilder: knitr, quarto
 Remotes: 
     github::runapp-aus/strayr
 Config/testthat/edition: 3
-LazyData: true
 URL: https://amwu-nrc.github.io/reportabs/
 Depends: 
     R (>= 4.1)
