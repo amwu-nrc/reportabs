@@ -72,15 +72,14 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://amwu-nrc.github.io/reportabs/">reportabs</a></span><span class="op">)</span></span>
 <span><span class="va">labour_force</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_absdata.html">read_absdata</a></span><span class="op">(</span><span class="st">"labour_force"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<p><code><a href="../reference/abs_plot.html">abs_plot()</a></code> will do most of the heavy lifting for you, if you know the indicator you want to plot. If not, typing plot_ and pressing tab will show the included plots. <code>abs_plot(labour_force, indicator = "Employed total")</code> is identical to <code>plot_employed_total("Australia")</code>.</p>
-<div class="cell" data-units="cm">
+<p><code><a href="../reference/abs_plot.html">abs_plot()</a></code> will do most of the heavy lifting for you, if you know the indicator you want to plot. If not, typing plot_ and pressing tab will show the included plots. <code>abs_plot(labour_force, indicator = "Employed total", type = "labour_force")</code> is identical to <code>plot_employed_total("Australia")</code>.</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/abs_plot.html">abs_plot</a></span><span class="op">(</span><span class="va">labour_force</span>, over <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="st">"Employed total"</span>, states <span class="op">=</span> <span class="st">"Australia"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: The `over` argument of `abs_plot()` is deprecated as of reportabs 0.0.3.</span></span>
-<span><span class="co">#&gt; ℹ Please use the `filter_with` argument instead.</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/abs_plot.html">abs_plot</a></span><span class="op">(</span><span class="va">labour_force</span>, filter_with <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>indicator <span class="op">=</span> <span class="st">"Employed total"</span>, state <span class="op">=</span> <span class="st">"Australia"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"labour_force"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: implied series_type = 'Trend'</span></span></code></pre></div>
 <div class="cell-output-display">
 <div>
-<figure><p><img src="plotting_files/figure-html/abs-plot-example-1.png" width="672"></p>
+<figure><p><img src="plotting_files/figure-html/abs-plot-example-1.png" style="width:70.0%"></p>
 </figure>
 </div>
 </div>
