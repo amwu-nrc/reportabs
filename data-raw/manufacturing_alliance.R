@@ -3,7 +3,7 @@ library(strayr)
 library(dplyr)
 
 manufacturing_alliance <- anzsic2006 |>
-  filter(anzsic_division_code %in% c("C", "S")) |>
+  filter(anzsic_division_code == "C" | anzsic_subdivision == "Repair and Maintenance") |>
   mutate(sub_sector = case_when(
     anzsic_subdivision_code %in% c("11", "12") & !anzsic_group_code %in% c("111", "112") ~ "Food and beverage, including tobacco",
     anzsic_subdivision_code == "16" ~ "Print and graphic arts",
