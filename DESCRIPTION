@@ -40,3 +40,4 @@ Config/testthat/edition: 3
 URL: https://amwu-nrc.github.io/reportabs/
 Depends: 
     R (>= 4.1)
+LazyData: true
