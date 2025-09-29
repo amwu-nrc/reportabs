@@ -81,6 +81,7 @@ theme_nrc <- function(base_size = 12,
 
   thm <- theme_foundation(base_size = base_size, base_family = base_family) +
     ggplot2::theme(line = element_line(linetype = 1, colour = "black", linewidth = 0.25),
+                   panel.background = element_rect(fill = bg_colour),
                    rect = element_rect(fill = bg_colour,
                                        linetype = 0,
                                        colour = NA),
