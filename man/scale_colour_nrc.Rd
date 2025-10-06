@@ -4,7 +4,7 @@
 \alias{scale_colour_nrc}
 \title{Colour Scale for Australian Manufacturing Workers Union}
 \usage{
-scale_colour_nrc(palette = "main", discrete = TRUE, reverse = FALSE)
+scale_colour_nrc(palette = NULL, discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Name of the colour palette (default "main")}

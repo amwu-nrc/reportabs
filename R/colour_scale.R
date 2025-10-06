@@ -32,14 +32,22 @@ scale_colour_fof <- function(palette = "main", discrete = TRUE, reverse = FALSE)
 #' p <- ggplot(mtcars, aes(x = mpg, y = disp, col = factor(cyl))) + geom_point()
 #' p + scale_colour_nrc()
 
-scale_colour_nrc <- function(palette = "main", discrete = TRUE, reverse = FALSE) {
+scale_colour_nrc <- function(palette = NULL, discrete = TRUE, reverse = FALSE, ...) {
 
-  pal <- nrc_pal(palette = palette, reverse = reverse)
+  if (is.null(palette) && discrete) {
+    palette <- "main"
+  }
+
+  if (is.null(palette) && !discrete) {
+    palette <- "sequential"
+  }
+
+  pal <- make_amwu_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    ggplot2::discrete_scale("colour", name = paste0("nrc", palette), palette = pal)
+    ggplot2::discrete_scale("colour", palette = make_amwu_pal_discrete, ...)
   } else {
-    ggplot2::scale_colour_gradientn(colours = pal(256))
+    ggplot2::scale_colour_gradientn(colours = pal(256), ...)
   }
 
 }
@@ -80,12 +88,21 @@ scale_fill_fof <- function(palette = "main", discrete = TRUE, reverse = FALSE) {
 #' df <- data.frame(x = c("One", "Two", "Three"), y = c(4, 2, 9))
 #' p <- ggplot(df, aes(x = x, y = y, fill = x)) + geom_col()
 #' p + scale_fill_nrc()
-scale_fill_nrc <- function(palette = "main", discrete = TRUE, reverse = FALSE) {
-  pal <- nrc_pal(palette = palette, reverse = reverse)
+scale_fill_nrc <- function(palette = NULL, discrete = TRUE, reverse = FALSE, ...) {
+
+  if (is.null(palette) && discrete) {
+    palette <- "main"
+  }
+
+  if (is.null(palette) && !discrete) {
+    palette <- "sequential"
+  }
+
+  pal <- make_amwu_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    ggplot2::discrete_scale("fill", name = paste0("nrc", palette), palette = pal)
+    ggplot2::discrete_scale("fill", palette = make_amwu_pal_discrete, ...)
   } else {
-    ggplot2::scale_fill_gradientn(colours = pal(256))
+    ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
 }
