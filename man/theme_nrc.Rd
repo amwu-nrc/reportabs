@@ -4,20 +4,16 @@
 \alias{theme_nrc}
 \title{ggplot2 theme for Australian Manufacturing Workers Union}
 \usage{
-theme_nrc(base_size = 12, legend = "none", markdown = FALSE, flipped = FALSE)
+theme_nrc(base_size = 12, legend = "none", flipped = FALSE)
 }
 \arguments{
 \item{base_size}{The base size of text elements of the plot. (default 12)}
 
 \item{legend}{The position of the legend. (default "none")}
 
-\item{markdown}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}} Whether to use markdown formatting for plot titles (default FALSE)}
-
 \item{flipped}{Whether to flip the y-axis guide lines to show on the x-axis instead (default FALSE)}
 
 \item{colour}{The background colour of the plot. Background colours are applied at 80\% transparency. (default 'Soft Black')}
-
-\item{legacy}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} Whether to use legacy fonts. This option will be removed sometime in the future.}
 }
 \value{
 a ggplot2 theme
