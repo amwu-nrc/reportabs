@@ -1,10 +1,10 @@
 amwu_palettes <- list(
   `main` = c(amwu_yellow,
              amwu_orange,
-             amwu_grey,
-             amwu_darkgrey,
              amwu_blue,
-             amwu_darkblue),
+             amwu_darkblue,
+             amwu_darkgrey
+             ),
   `sequential` = c(amwu_orange, amwu_yellow),
   `diverging` = c(amwu_orange, amwu_yellow, amwu_blue)
 )
