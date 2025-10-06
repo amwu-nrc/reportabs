@@ -5,9 +5,13 @@ format:
   typst:
     fig-width: 6
     fig-asp: 0.618
+    fig-format: svg
     title: "Labour Market Brief"
     subtitle: "{{< meta params.state >}}"
   html:
+    fig-format: svg
+    fig-width: 6
+    fig-asp: 0.618
     title: "Labour Market Brief"
     subtitle: "{{< meta params.state >}}"
     output-ext: html
