@@ -111,7 +111,7 @@ abs_plot_labour_force <- function(data,
     compare_aus <- FALSE
   }
   e <- check_valid_graph(over, facet = facet)
-  col_var <- get_col_var(e)
+  col_var <- get_col_var(e, facet = facet)
   index_to <- ifelse(years >= lubridate::year(min(data$date)),
                      paste(years,  #this feels very unnecessary - but the dashboard data and lf briefing data is only 1/5 years prior to the most current
                            stringr::str_pad(width = 2, pad = "0", lubridate::month(min(data$date))),
