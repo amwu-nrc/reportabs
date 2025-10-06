@@ -6,11 +6,11 @@
 \usage{
 theme_fof(
   base_size = 14,
-  colour = "Soft Black",
+  colour = lifecycle::deprecated(),
   legend = "none",
   markdown = FALSE,
   flipped = FALSE,
-  legacy = FALSE
+  legacy = lifecycle::deprecated()
 )
 }
 \arguments{

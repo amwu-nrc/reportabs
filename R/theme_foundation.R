@@ -22,8 +22,11 @@
 #' @family themes
 #' @export
 #' @importFrom ggplot2 theme_grey
-theme_foundation <- function(base_size=12, base_family="") {
-  thm <- theme_grey(base_size = base_size, base_family = base_family)
+#'
+theme_foundation <- function(base_size = 12,
+                             base_family = "DM Sans",
+                             paper = amwu_transparentgrey) {
+  thm <- theme_grey(base_size = base_size, base_family = base_family, paper = paper, accent = amwu_orange)
   for (i in names(thm)) {
     if ("colour" %in% names(thm[[i]])) {
       thm[[i]]["colour"] <- list(NULL)
@@ -35,6 +38,5 @@ theme_foundation <- function(base_size=12, base_family="") {
   thm + ggplot2::theme(panel.border = element_rect(fill = NA),
                        legend.background = element_rect(colour = NA),
                        line = element_line(colour = "black"),
-                       rect = element_rect(fill = "white", colour = "black"),
                        text = element_text(colour = "black"))
 }
