@@ -17,20 +17,18 @@
 #' `theme_fof()` has been renamed `theme_nrc()`
 
 theme_fof <- function(base_size = 14,
-                       colour = "Soft Black",
+                       colour = lifecycle::deprecated(),
                        legend = "none",
                        markdown = FALSE,
                        flipped = FALSE,
-                       legacy = FALSE) {
+                       legacy = lifecycle::deprecated()) {
 
   lifecycle::deprecate_warn("0.0.3", "theme_fof()", "theme_nrc()")
 
   theme_nrc(base_size,
-            colour,
             legend,
             markdown,
-            flipped,
-            legacy)
+            flipped)
 
 }
 
@@ -41,9 +39,7 @@ theme_fof <- function(base_size = 14,
 #' @param base_size The base size of text elements of the plot. (default 12)
 #' @param colour The background colour of the plot. Background colours are applied at 80% transparency. (default 'Soft Black')
 #' @param legend The position of the legend. (default "none")
-#' @param markdown `r lifecycle::badge("experimental")` Whether to use markdown formatting for plot titles (default FALSE)
 #' @param flipped Whether to flip the y-axis guide lines to show on the x-axis instead (default FALSE)
-#' @param legacy `r lifecycle::badge("deprecated")` Whether to use legacy fonts. This option will be removed sometime in the future.
 #'
 #' @returns a ggplot2 theme
 #' @export
@@ -54,45 +50,30 @@ theme_fof <- function(base_size = 14,
 #' p <- ggplot(df, aes(x = x, y = y, fill = x)) + geom_col()
 #' p + theme_nrc()
 theme_nrc <- function(base_size = 12,
-                      colour = "Sand",
                       legend = "none",
-                      markdown = FALSE,
-                      flipped = FALSE,
-                      legacy = FALSE) {
+                      flipped = FALSE) {
 
   stopifnot(legend %in% c("none", "top", "bottom", "left", "right"))
 
-  col <- nrc_colours[colour]
+  base_family <-  "DM Sans"
 
-  bg_colour <-grDevices::col2rgb(col) + (255 - grDevices::col2rgb(col))*0.8
-
-  bg_colour <- grDevices::rgb(bg_colour[1],
-                              bg_colour[2],
-                              bg_colour[3],
-                              maxColorValue = 255)
-
-  base_family <- if (legacy) "Roboto" else "DM Sans"
-
-  sysfonts::font_add_google("Roboto", "Roboto")
   sysfonts::font_add_google("DM Sans", "DM Sans")
   showtext::showtext_auto()
 
-  ggplot2::update_geom_defaults("smooth", ggplot2::aes(color = nrc_colours["AMWU Orange"]))
-
   thm <- theme_foundation(base_size = base_size, base_family = base_family) +
-    ggplot2::theme(line = element_line(linetype = 1, colour = "black", linewidth = 0.25),
-                   panel.background = element_rect(fill = bg_colour),
-                   rect = element_rect(fill = bg_colour,
-                                       linetype = 0,
-                                       colour = NA),
+    ggplot2::theme(palette.colour.discrete = make_amwu_pal(),
+                   palette.fill.discrete = make_amwu_pal(),
+                   palette.colour.continuous = make_amwu_pal()(256),
+                   palette.fill.continuous = make_amwu_pal()(256),
+                   line = element_line(linetype = 1, colour = "black", linewidth = 0.25),
                    text = element_text(colour = "black",
                                        lineheight = 0.9,
                                        size = base_size,
                                        family = base_family),
-                   axis.title = element_text(family = base_family, size = rel(1)),
-                   axis.title.x = element_text(margin = margin(t = 6),
+                   axis.title = element_text(family = base_family, size = rel(1.5)),
+                   axis.title.x = ggtext::element_markdown(margin = margin(t = 6),
                                                vjust = 1),
-                   axis.title.y = element_text(angle = 90,
+                   axis.title.y = ggtext::element_markdown(angle = 90,
                                                vjust = 1),
                    axis.line = element_line(linewidth = 0.35, colour = "black"),
                    axis.line.y = element_blank(),
@@ -102,7 +83,7 @@ theme_nrc <- function(base_size = 12,
                    axis.text.x = element_text(colour = NULL),
                    axis.text.y = element_text(colour = NULL),
                    axis.ticks = element_line(colour = "black"),
-                   axis.ticks.length = unit(6, "pt"),
+                   axis.ticks.length = unit(4, "pt"),
                    axis.ticks.length.x = NULL,
                    axis.ticks.length.x.top = NULL,
                    axis.ticks.length.x.bottom = NULL,
@@ -110,8 +91,8 @@ theme_nrc <- function(base_size = 12,
                    axis.ticks.length.y.left = NULL,
                    axis.ticks.length.y.right = NULL,
                    legend.background = element_rect(),
-                   legend.key.size = unit(32, "pt"),
-                   legend.text = element_text(size = rel(0.75)),
+                   legend.key.size = unit(16, "pt"),
+                   legend.text = element_text(size = rel(0.85)),
                    legend.box.spacing = unit(0, "pt"),
                    legend.position = "bottom",
                    legend.direction = "horizontal",
@@ -121,12 +102,20 @@ theme_nrc <- function(base_size = 12,
                    panel.grid = element_line(colour = "black", linewidth = 0.15),
                    panel.grid.major.x = element_blank(),
                    panel.border = element_blank(),
+                   panel.background = element_rect(fill = NA),
                    panel.grid.minor = element_blank(),
                    plot.title = ggtext::element_textbox_simple(face = "bold", family = base_family, margin = margin(0, 0, 5, 0)),
                    plot.subtitle = ggtext::element_textbox_simple(family = base_family, margin = margin(5,0,0,0)),
                    plot.margin = unit(c(1,1,1,1), "lines"),
                    plot.caption = ggtext::element_textbox_simple(margin = margin(2.5, 0, 0, 0)),
-                   strip.background = element_rect()
+                   strip.background = element_blank(),
+                   strip.text = ggtext::element_textbox(
+                     size = rel(1),
+                     colour = "white",
+                     fill = amwu_blue,
+                     halign = 0.5, linetype = 1, r = unit(0, "pt"), width = unit(1, "npc"),
+                     padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)
+                   )
     )
 
   if (flipped) {
@@ -135,23 +124,7 @@ theme_nrc <- function(base_size = 12,
                      panel.grid.major.y = element_blank())
   }
 
-  if (markdown) {
-    thm <- thm %+replace%
-      ggplot2::theme(
-        plot.title = ggtext::element_markdown(
-          hjust = 0,
-          vjust = 1,
-          face = "bold",
-          margin = margin(b = base_size / 2)
-        ),
-        plot.subtitle = ggtext::element_markdown(
-          hjust = 0,
-          vjust = 1,
-          lineheight = 1.2
-        ),
-        axis.title.x = ggtext::element_markdown(),
-        axis.title.y = ggtext::element_markdown())
-  }
+
 
   if (legend == "none") {
     thm <- thm %+replace%
