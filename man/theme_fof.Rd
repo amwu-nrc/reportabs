@@ -8,7 +8,7 @@ theme_fof(
   base_size = 14,
   colour = lifecycle::deprecated(),
   legend = "none",
-  markdown = FALSE,
+  markdown = lifecycle::deprecated(),
   flipped = FALSE,
   legacy = lifecycle::deprecated()
 )

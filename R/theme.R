@@ -19,7 +19,7 @@
 theme_fof <- function(base_size = 14,
                        colour = lifecycle::deprecated(),
                        legend = "none",
-                       markdown = FALSE,
+                       markdown = lifecycle::deprecated(),
                        flipped = FALSE,
                        legacy = lifecycle::deprecated()) {
 
@@ -27,7 +27,6 @@ theme_fof <- function(base_size = 14,
 
   theme_nrc(base_size,
             legend,
-            markdown,
             flipped)
 
 }
