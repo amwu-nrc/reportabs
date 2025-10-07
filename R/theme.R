@@ -37,7 +37,6 @@ theme_fof <- function(base_size = 14,
 #' Theme for plots in publications, reports, Shiny apps, etc. Anywhere ggplot2 is used, you can use this theme!
 #'
 #' @param base_size The base size of text elements of the plot. (default 12)
-#' @param colour The background colour of the plot. Background colours are applied at 80% transparency. (default 'Soft Black')
 #' @param legend The position of the legend. (default "none")
 #' @param flipped Whether to flip the y-axis guide lines to show on the x-axis instead (default FALSE)
 #'

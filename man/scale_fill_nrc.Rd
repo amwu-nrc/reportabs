@@ -12,6 +12,8 @@ scale_fill_nrc(palette = NULL, discrete = TRUE, reverse = FALSE, ...)
 \item{discrete}{Whether the colours should be discrete or continuous (default TRUE)}
 
 \item{reverse}{Whether the order of the colours should be reversed (default FALSE)}
+
+\item{...}{Additional arguments passed to ggplot scale}
 }
 \value{
 ggplot2 fill scale

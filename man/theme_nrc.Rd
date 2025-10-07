@@ -12,8 +12,6 @@ theme_nrc(base_size = 12, legend = "none", flipped = FALSE)
 \item{legend}{The position of the legend. (default "none")}
 
 \item{flipped}{Whether to flip the y-axis guide lines to show on the x-axis instead (default FALSE)}
-
-\item{colour}{The background colour of the plot. Background colours are applied at 80\% transparency. (default 'Soft Black')}
 }
 \value{
 a ggplot2 theme

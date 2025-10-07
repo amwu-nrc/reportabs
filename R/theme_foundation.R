@@ -18,6 +18,7 @@
 #' \url{https://github.com/jrnold/ggthemes/}
 #'
 #' @inheritParams ggplot2::theme_grey
+#' @param paper paper (background) colour
 #'
 #' @family themes
 #' @export

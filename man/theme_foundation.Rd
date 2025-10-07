@@ -14,6 +14,8 @@ theme_foundation(
 \item{base_size}{base font size, given in pts.}
 
 \item{base_family}{base font family}
+
+\item{paper}{paper (background) colour}
 }
 \description{
 This theme is designed to be a foundation from which to build new

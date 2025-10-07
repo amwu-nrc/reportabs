@@ -23,9 +23,10 @@ scale_colour_fof <- function(palette = "main", discrete = TRUE, reverse = FALSE)
 
 #' Colour Scale for Australian Manufacturing Workers Union
 #'
-#' @param palette Name of the colour palette (default "main")
+#' @param palette Name of the colour palette (default NULL)
 #' @param discrete Whether the colours should be discrete or continuous (default TRUE)
 #' @param reverse Whether the order of the colours should be reversed (default FALSE)
+#' @param ... Additional arguments passed to ggplot scale
 #' @export
 #' @examples
 #' library(ggplot2)
@@ -79,6 +80,7 @@ scale_fill_fof <- function(palette = "main", discrete = TRUE, reverse = FALSE) {
 #' @param palette Name of the colour palette (default "main")
 #' @param discrete Whether the colours should be discrete or continuous (default TRUE)
 #' @param reverse Whether the order of the colours should be reversed (default FALSE)
+#' @param ... Additional arguments passed to ggplot scale
 #'
 #' @returns ggplot2 fill scale
 #' @export
