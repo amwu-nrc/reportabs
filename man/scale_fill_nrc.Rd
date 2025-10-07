@@ -4,7 +4,7 @@
 \alias{scale_fill_nrc}
 \title{Fill scale for Australian Manufacturing Workers Union colours}
 \usage{
-scale_fill_nrc(palette = "main", discrete = TRUE, reverse = FALSE)
+scale_fill_nrc(palette = NULL, discrete = TRUE, reverse = FALSE, ...)
 }
 \arguments{
 \item{palette}{Name of the colour palette (default "main")}
@@ -12,6 +12,8 @@ scale_fill_nrc(palette = "main", discrete = TRUE, reverse = FALSE)
 \item{discrete}{Whether the colours should be discrete or continuous (default TRUE)}
 
 \item{reverse}{Whether the order of the colours should be reversed (default FALSE)}
+
+\item{...}{Additional arguments passed to ggplot scale}
 }
 \value{
 ggplot2 fill scale

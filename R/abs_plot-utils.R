@@ -138,16 +138,23 @@ check_valid_graph <- function(over, facet) {
   }
 }
 
-get_col_var <- function(e) {
+get_col_var <- function(e, facet) {
+
   # The simplest case is when 1 variable in filter_with has length > 1
-  if (length(e[e > 1]) == 1) {
+  if (length(e[e > 1]) == 1 && is.null(facet)) {
     col_var <- names(e[e > 1])
+  } else if (length(e[e > 1]) == 2 && !is.null(facet)) {
+    # More complex when there's a facet. Ignore the facet one
+
+    z <- e[e>1]
+    col_var <- names(z[facet != names(z)])
   } else {
     col_var <- dplyr::case_when(
       length(e[e > 1]) == 0 && !"industry" %in% names(e) ~ "indicator",
       length(e[e > 1]) == 0 && "industry" %in% names(e) ~ "industry"
     )
   }
+
 
   col_var
 }

@@ -41,7 +41,7 @@ nrc_pal <- function(palette = "main", reverse = FALSE, ...) {
 
   if (reverse) pal <- rev(pal)
 
-  grDevices::colorRampPalette(pal, ...)
+  grDevices::colorRampPalette(pal, ..., interpolate = "spline")
 
 }
 

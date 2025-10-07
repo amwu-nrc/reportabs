@@ -4,12 +4,18 @@
 \alias{theme_foundation}
 \title{Foundation Theme}
 \usage{
-theme_foundation(base_size = 12, base_family = "")
+theme_foundation(
+  base_size = 12,
+  base_family = "DM Sans",
+  paper = amwu_transparentgrey
+)
 }
 \arguments{
 \item{base_size}{base font size, given in pts.}
 
 \item{base_family}{base font family}
+
+\item{paper}{paper (background) colour}
 }
 \description{
 This theme is designed to be a foundation from which to build new

@@ -14,7 +14,7 @@ RoxygenNote: 7.3.2
 Imports: 
     cli,
     dplyr,
-    ggplot2,
+    ggplot2 (>= 4.0.0),
     ggtext,
     lifecycle,
     lubridate,
