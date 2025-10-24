@@ -1,12 +1,12 @@
 amwu_palettes <- list(
-  `main` = c(amwu_yellow,
-             amwu_orange,
-             amwu_blue,
-             amwu_darkblue,
-             amwu_darkgrey
-             ),
-  `sequential` = c(amwu_orange, amwu_yellow),
-  `diverging` = c(amwu_orange, amwu_yellow, amwu_blue)
+  `main` = c(steel_blue,
+             sky_blue,
+             grey),
+  `grey` = c(deep_grey,
+             mercury,
+             silver,
+             white),
+  `sequential` = c(vivid_orange, sky_blue)
 )
 
 make_amwu_pal <- function(palette = "sequential",
