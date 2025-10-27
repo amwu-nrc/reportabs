@@ -51,14 +51,14 @@ theme_fof <- function(base_size = 14,
 #' p + theme_nrc()
 theme_nrc <- function(base_size = 12,
                       legend = "none",
-                      ink = white,
-                      paper = midnight,
+                      ink = midnight,
+                      paper = white,
                       flipped = FALSE) {
 
   stopifnot(legend %in% c("none", "top", "bottom", "left", "right"))
 
-  base_family <- "Roboto"
-  systemfonts::require_font("Roboto")
+  base_family <- "Arial"
+  systemfonts::require_font("Arial")
 
   theme_bw(base_size = base_size,
            base_family = base_family,
@@ -74,7 +74,7 @@ theme_nrc <- function(base_size = 12,
           line = element_line(linetype = 1, colour = ink, linewidth = 0.25),
           text = element_text(colour = ink, lineheight = 0.9, size = base_size)) +
     theme_sub_plot(
-      title = ggtext::element_textbox_simple(face = "bold", family = base_family, margin = margin(0, 0, 5, 0)),
+      title = ggtext::element_textbox_simple(face = "bold", colour = ink, family = base_family, margin = margin(0, 0, 5, 0)),
       subtitle = ggtext::element_textbox_simple(family = base_family, margin = margin(5,0,0,0)),
       margin = unit(c(1,1,1,1), "lines"),
       caption = ggtext::element_textbox_simple(face = "italic", margin = margin(2.5, 0, 0, 0))
@@ -98,7 +98,7 @@ theme_nrc <- function(base_size = 12,
     ) +
     theme_sub_axis(
       title = element_text(family = base_family, size = rel(1.5)),
-      text = element_text(family = base_family, size = rel(1)),
+      text = element_text(family = base_family,face = "bold", size = rel(0.85)),
       ticks.length = unit(4, "pt"),
       line = element_line(linewidth = 0.35, colour = ink)
     ) +
