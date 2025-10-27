@@ -1,7 +1,7 @@
 amwu_palettes <- list(
-  `main` = c(steel_blue,
-             sky_blue,
-             grey),
+  `main` = c(vivid_orange,
+             steel_blue,
+             sky_blue),
   `grey` = c(deep_grey,
              mercury,
              silver,
@@ -9,7 +9,7 @@ amwu_palettes <- list(
   `sequential` = c(vivid_orange, sky_blue)
 )
 
-make_amwu_pal <- function(palette = "sequential",
+make_amwu_pal <- function(palette = "main",
                           reverse = FALSE,
                           ...) {
 
