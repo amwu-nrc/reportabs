@@ -61,8 +61,8 @@ theme_nrc <- function(base_size = 12,
 
   stopifnot(legend %in% c("none", "top", "bottom", "left", "right"))
 
-  base_family <- "Arial"
-  systemfonts::require_font("Arial")
+  base_family <- "Open Sans"
+  systemfonts::require_font("Open Sans")
 
   thm <- theme_bw(base_size = base_size,
            base_family = base_family,
@@ -101,8 +101,8 @@ theme_nrc <- function(base_size = 12,
       grid = element_line(colour = ink, linewidth = 0.15),
     ) +
     theme_sub_axis(
-      title = element_text(family = base_family, size = rel(1.5)),
-      text = element_text(family = base_family,face = "bold", size = rel(0.85)),
+      title = element_text(family = base_family, size = rel(1.25)),
+      text = element_text(family = base_family,face = "bold", size = rel(1)),
       ticks.length = unit(4, "pt"),
       line = element_line(linewidth = 0.35, colour = ink)
     ) +
