@@ -15,3 +15,11 @@ a vector of dates
 \description{
 Ensures the last period of data is shown on the plot.
 }
+\examples{
+library(ggplot2)
+
+ggplot(economics, aes(x = date, y = uempmed)) +
+geom_line() +
+scale_x_date(breaks = plot_date_range(economics))
+
+}

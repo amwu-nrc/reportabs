@@ -8,6 +8,11 @@
 #' @export
 #'
 #' @examples
+#' library(ggplot2)
+#'
+#' ggplot(economics, aes(x = date, y = uempmed)) +
+#' geom_line() +
+#' scale_x_date(breaks = plot_date_range(economics))
 #'
 plot_date_range <- function(plot_data) {
 
