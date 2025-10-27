@@ -60,7 +60,7 @@ theme_nrc <- function(base_size = 12,
   base_family <- "Arial"
   systemfonts::require_font("Arial")
 
-  theme_bw(base_size = base_size,
+  thm <- theme_bw(base_size = base_size,
            base_family = base_family,
            header_family = "",
            base_line_size = base_size / 22,
@@ -124,22 +124,22 @@ theme_nrc <- function(base_size = 12,
 
 
 
-  # if (flipped) {
-  #   thm <- thm %+replace%
-  #     ggplot2::theme(panel.grid.major.x = element_line(),
-  #                    panel.grid.major.y = element_blank())
-  # }
-  #
-  #
-  #
-  # if (legend == "none") {
-  #   thm <- thm %+replace%
-  #     ggplot2::theme(legend.position = "none")
-  # } else {
-  #   thm <- thm %+replace%
-  #     ggplot2::theme(legend.position = legend)
-  # }
+  if (flipped) {
+    thm <- thm %+replace%
+      ggplot2::theme(panel.grid.major.x = element_line(),
+                     panel.grid.major.y = element_blank())
+  }
 
 
+
+  if (legend == "none") {
+    thm <- thm %+replace%
+      ggplot2::theme(legend.position = "none")
+  } else {
+    thm <- thm %+replace%
+      ggplot2::theme(legend.position = legend)
+  }
+
+  thm
 
 }
