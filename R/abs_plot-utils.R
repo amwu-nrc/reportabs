@@ -71,7 +71,7 @@ create_plot <- function(plot_data, plot_parameters, void, plotly, ...) {
       caption = plot_parameters$caption
     ) + ggplot2::guides(colour = ggplot2::guide_legend())
 
-    p <- p + theme_nrc(legend = "top",...) + scale_colour_nrc()
+    p <- p + theme_nrc(legend = "top",...)
 
   } else {
     p <- p + ggplot2::theme_void() +
