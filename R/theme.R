@@ -37,18 +37,22 @@ theme_fof <- function(base_size = 14,
 #'
 #' @param base_size The base size of text elements of the plot. (default 12)
 #' @param legend The position of the legend. (default "none")
+#' @param ink Ink (foreground) colour. (default midnight)
+#' @param paper Paper (background) colour. (default white)
 #' @param flipped Whether to flip the y-axis guide lines to show on the x-axis instead (default FALSE)
 #'
 #' @returns a ggplot2 theme
 #' @export
 #' @importFrom ggplot2 element_line element_rect element_text element_blank rel margin unit '%+replace%'
 #' theme_sub_axis theme_sub_legend theme_sub_panel theme_sub_strip theme_sub_plot theme_sub_axis_bottom
-#' theme_sub_axis_left theme theme_grey
+#' theme_sub_axis_left theme theme_bw
 #' @examples
+#' \dontrun{
 #' library(ggplot2)
 #' df <- data.frame(x = c("One", "Two", "Three"), y = c(4, 2, 9))
 #' p <- ggplot(df, aes(x = x, y = y, fill = x)) + geom_col()
 #' p + theme_nrc()
+#' }
 theme_nrc <- function(base_size = 12,
                       legend = "none",
                       ink = midnight,
@@ -67,8 +71,8 @@ theme_nrc <- function(base_size = 12,
            base_rect_size = base_size /22,
            ink = ink,
            paper = paper) %+replace%
-    theme(palette.colour.discrete = make_amwu_pal(),
-          palette.fill.discrete = make_amwu_pal(),
+    theme(palette.colour.discrete = make_amwu_pal_discrete,
+          palette.fill.discrete = make_amwu_pal_discrete,
           palette.colour.continuous = make_amwu_pal()(256),
           palette.fill.continuous = make_amwu_pal()(256),
           line = element_line(linetype = 1, colour = ink, linewidth = 0.25),
