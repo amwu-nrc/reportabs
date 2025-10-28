@@ -6,17 +6,11 @@
 \title{amwu_yellow2}
 \format{
 An object of class \code{character} of length 1.
-
-An object of class \code{character} of length 1.
 }
 \usage{
 amwu_yellow2
-
-amwu_yellow2
 }
 \description{
-amwu_yellow2
-
 amwu_yellow2
 }
 \keyword{datasets}

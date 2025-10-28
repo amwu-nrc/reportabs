@@ -4,12 +4,22 @@
 \alias{theme_nrc}
 \title{ggplot2 theme for Australian Manufacturing Workers Union}
 \usage{
-theme_nrc(base_size = 12, legend = "none", flipped = FALSE)
+theme_nrc(
+  base_size = 12,
+  legend = "none",
+  ink = midnight,
+  paper = white,
+  flipped = FALSE
+)
 }
 \arguments{
 \item{base_size}{The base size of text elements of the plot. (default 12)}
 
 \item{legend}{The position of the legend. (default "none")}
+
+\item{ink}{Ink (foreground) colour. (default midnight)}
+
+\item{paper}{Paper (background) colour. (default white)}
 
 \item{flipped}{Whether to flip the y-axis guide lines to show on the x-axis instead (default FALSE)}
 }
@@ -20,8 +30,10 @@ a ggplot2 theme
 Theme for plots in publications, reports, Shiny apps, etc. Anywhere ggplot2 is used, you can use this theme!
 }
 \examples{
+\dontrun{
 library(ggplot2)
 df <- data.frame(x = c("One", "Two", "Three"), y = c(4, 2, 9))
 p <- ggplot(df, aes(x = x, y = y, fill = x)) + geom_col()
 p + theme_nrc()
+}
 }
