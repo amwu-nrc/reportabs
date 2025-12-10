@@ -13,6 +13,7 @@
 #' @export
 #'
 read_absdata <- function(name = NULL,
+                         refresh = FALSE,
                          export_dir = tempdir()) {
 
   base_url <- "https://github.com/amwu-nrc/amwudata/raw/master/data/"
@@ -20,7 +21,7 @@ read_absdata <- function(name = NULL,
 
   out_path <- file.path(export_dir, paste0(name, ".rda"))
 
-  if (!file.exists(out_path)) {
+  if (!file.exists(out_path) | refresh) {
 
       tryCatch(utils::download.file(url,
                                     destfile = out_path,
