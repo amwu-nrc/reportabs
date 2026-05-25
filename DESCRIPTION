@@ -14,6 +14,7 @@ RoxygenNote: 7.3.3
 Imports: 
     cli,
     dplyr,
+    geomtextpath,
     ggplot2 (>= 4.0.0),
     ggtext,
     glue,
@@ -28,6 +29,7 @@ Imports:
     stringr,
     systemfonts,
     tibble,
+    tidyr,
     zoo
 Suggests:
     knitr,
