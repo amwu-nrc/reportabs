@@ -4,10 +4,12 @@
 \alias{read_absdata}
 \title{Read ABS time series data.}
 \usage{
-read_absdata(name = NULL, export_dir = tempdir())
+read_absdata(name = NULL, refresh = FALSE, export_dir = tempdir())
 }
 \arguments{
 \item{name}{The name, as a string, of the dataset to download.A full list of available data is available at https://github.com/amwu-nrc/amwudata}
+
+\item{refresh}{TRUE to download even if the file already exists}
 
 \item{export_dir}{The directory in which to save downloaded data. Defaults to a temporary directory.}
 }

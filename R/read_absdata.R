@@ -8,6 +8,7 @@
 #'
 #' @param name The name, as a string, of the dataset to download.A full list of available data is available at https://github.com/amwu-nrc/amwudata
 #' @param export_dir The directory in which to save downloaded data. Defaults to a temporary directory.
+#' @param refresh TRUE to download even if the file already exists
 #'
 #' @return data
 #' @export
