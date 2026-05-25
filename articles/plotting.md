@@ -1,6 +1,7 @@
 # Plotting ABS Time Series Data
 
 ``` r
+
 library(reportabs)
 labour_force <- read_absdata("labour_force")
 ```
@@ -13,9 +14,10 @@ included plots.
 is identical to `plot_employed_total("Australia")`.
 
 ``` r
+
 abs_plot(labour_force, filter_with = list(indicator = "Employed total", state = "Australia"), type = "labour_force")
 #> Warning: implied series_type = 'Trend'
-#> Trying Google Fonts... Found! Downloading font to /tmp/RtmpN44aTy
+#> Trying Google Fonts... Found! Downloading font to /tmp/RtmpMOHFJF
 ```
 
 ![](plotting_files/figure-html/abs-plot-example-1.png)

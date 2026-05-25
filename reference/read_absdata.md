@@ -6,7 +6,7 @@ Read ABS time series data from the
 ## Usage
 
 ``` r
-read_absdata(name = NULL, export_dir = tempdir())
+read_absdata(name = NULL, refresh = FALSE, export_dir = tempdir())
 ```
 
 ## Arguments
@@ -15,6 +15,10 @@ read_absdata(name = NULL, export_dir = tempdir())
 
   The name, as a string, of the dataset to download.A full list of
   available data is available at https://github.com/amwu-nrc/amwudata
+
+- refresh:
+
+  TRUE to download even if the file already exists
 
 - export_dir:
 

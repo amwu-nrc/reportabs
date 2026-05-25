@@ -1,19 +1,22 @@
 # Reporting ABS Time Series Data
 
 ``` r
+
 library(reportabs)
 labour_force <- read_absdata("labour_force")
 ```
 
 ``` r
+
 average_over(data = labour_force, filter_with = list(indicator = "Employed total"), between = c("2010-01-01", "2020-01-01"))
-#> [1] 1902.564
+#> [1] 1902.563
 ```
 
 ``` r
+
 change(data = labour_force, filter_with = list(indicator = "Employed total"))
 #> Warning: implied series_type = 'Trend'
-#> [1] "increased by 217 (1.5%) to 14,678"
+#> [1] "increased by 201 (1.4%) to 14,763"
 ```
 
 Numbers can be formatted nicely for inclusion in documents using

@@ -41,6 +41,10 @@
 - [`clear_output()`](https://amwu-nrc.github.io/reportabs/reference/clear_output.md)
   : Apply dominance check to ABS unit record data. This function is not
   exported
+- [`cumulative_cpi()`](https://amwu-nrc.github.io/reportabs/reference/cumulative_cpi.md)
+  : Create Cumulative CPI Data Set
+- [`cumulative_wpi()`](https://amwu-nrc.github.io/reportabs/reference/cumulative_wpi.md)
+  : Create Cumulative WPI data set
 - [`current()`](https://amwu-nrc.github.io/reportabs/reference/current.md)
   : Return the most recent (current) value for an indicator
 - [`fof_cols()`](https://amwu-nrc.github.io/reportabs/reference/fof_cols.md)
@@ -88,6 +92,8 @@
   [`plot_underutilisation_rate()`](https://amwu-nrc.github.io/reportabs/reference/plot_employed_total.md)
   [`plot_sahm_recession_indicator()`](https://amwu-nrc.github.io/reportabs/reference/plot_employed_total.md)
   : Convenience functions for creating charts for ABS and other
+- [`plot_real_wages()`](https://amwu-nrc.github.io/reportabs/reference/plot_real_wages.md)
+  : Plot Real Wages Over Time
 - [`read_absdata()`](https://amwu-nrc.github.io/reportabs/reference/read_absdata.md)
   : Read ABS time series data.
 - [`release()`](https://amwu-nrc.github.io/reportabs/reference/release.md)
@@ -107,6 +113,8 @@
   **\[deprecated\]** : Fill scale for Factory of the Future colours
 - [`scale_fill_nrc()`](https://amwu-nrc.github.io/reportabs/reference/scale_fill_nrc.md)
   : Fill scale for Australian Manufacturing Workers Union colours
+- [`table_cli()`](https://amwu-nrc.github.io/reportabs/reference/table_cli.md)
+  : Change in Living Costs
 - [`theme_fof()`](https://amwu-nrc.github.io/reportabs/reference/theme_fof.md)
   **\[deprecated\]** : Factory of the Future Theme
 - [`theme_nrc()`](https://amwu-nrc.github.io/reportabs/reference/theme_nrc.md)

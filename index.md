@@ -10,6 +10,7 @@ visual and textual reporting of data.
 `reportabs` can be installed from github with:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("amwu-nrc/reportabs")
 ```
@@ -20,12 +21,14 @@ large and constantly updated, so you shouldn’t need to install it.
 Instead, you can access the data through this package.
 
 ``` r
+
 labour_force <- read_absdata("labour_force")
 ```
 
 It is also recommended that the tidyverse is installed and loaded.
 
 ``` r
+
 # install.packages("tidyverse")
 library(tidyverse)
 ```

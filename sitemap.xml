@@ -22,6 +22,8 @@
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/average_over.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/change.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/clear_output.html</loc></url>
+<url><loc>https://amwu-nrc.github.io/reportabs/reference/cumulative_cpi.html</loc></url>
+<url><loc>https://amwu-nrc.github.io/reportabs/reference/cumulative_wpi.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/current.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/fof_cols.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/fof_pal.html</loc></url>
@@ -34,6 +36,7 @@
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/palette_names.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/plot_date_range.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/plot_employed_total.html</loc></url>
+<url><loc>https://amwu-nrc.github.io/reportabs/reference/plot_real_wages.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/read_absdata.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/release.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/render_monthly_briefing.html</loc></url>
@@ -43,6 +46,7 @@
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/scale_colour_nrc.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/scale_fill_fof.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/scale_fill_nrc.html</loc></url>
+<url><loc>https://amwu-nrc.github.io/reportabs/reference/table_cli.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/theme_fof.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/theme_nrc.html</loc></url>
 <url><loc>https://amwu-nrc.github.io/reportabs/reference/value_at.html</loc></url>
